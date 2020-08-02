@@ -1,0 +1,42 @@
+#!/bin/bash
+#Author: Ankit Sharma
+#Date: 2-7-2019
+#Description: this script will setup openstack allinone 
+
+echo Please enter you Hostname
+
+read host
+
+hostnamectl set-hostname $host
+
+echo Please enter your ip for cloud setup
+
+read ip
+
+echo " $ip $host" >> /etc/hosts
+
+yum update -y 
+
+if  [ $? -eq 0 ]
+	then
+	yum install centos-release-openstack-stein -y
+	echo 
+	if [ $? -eq 0 ]
+		then
+		yum install openstack-packstack -y 
+		echo 
+		if [ $? -eq 0 ]
+			then
+			packstack --gen-answer-file /root/answer.txt
+			packsack --answer-file /root/answer.txt
+		
+		fi
+	fi
+
+else
+	echo "Openstack setup failed"
+	exit 0
+
+ 
+
+fi
