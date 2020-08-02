@@ -13,9 +13,16 @@ echo Please enter your ip for cloud setup
 
 read ip
 
+systemctl stop NetworkManager firewalld postfix
+systemctl disable NetworkManager firewalld postfix
+setenforce 0 
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+
+	
 echo " $ip $host" >> /etc/hosts
 
 yum update -y 
+
 
 if  [ $? -eq 0 ]
 	then
@@ -28,7 +35,7 @@ if  [ $? -eq 0 ]
 		if [ $? -eq 0 ]
 			then
 			packstack --gen-answer-file /root/answer.txt
-			packsack --answer-file /root/answer.txt
+			packstack --answer-file /root/answer.txt
 		
 		fi
 	fi
