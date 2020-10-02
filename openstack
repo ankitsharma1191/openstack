@@ -1,6 +1,6 @@
 #!/bin/bash
 #Author: Ankit Sharma
-#Date: 2-7-2019
+#Date: 2-7-2019-
 #Description: this script will setup openstack allinone 
 
 echo Please enter you Hostname
