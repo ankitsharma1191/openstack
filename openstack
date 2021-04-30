@@ -3,15 +3,15 @@
 #Date: 2-7-2019-
 #Description: this script will setup openstack allinone 
 
-echo Please enter you Hostname
+#echo Please enter you Hostname
 
-read host
+#read host
 
-hostnamectl set-hostname $host
+#hostnamectl set-hostname $host
 
-echo Please enter your ip for cloud setup
+#echo Please enter your ip for cloud setup
 
-read ip
+#read ip
 
 systemctl stop NetworkManager firewalld postfix
 systemctl disable NetworkManager firewalld postfix
@@ -19,7 +19,7 @@ setenforce 0
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 
 	
-echo " $ip $host" >> /etc/hosts
+#echo " $ip $host" >> /etc/hosts
 
 yum update -y 
 
