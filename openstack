@@ -7,11 +7,9 @@
 
 #read host
 
-#hostnamectl set-hostname $host
+hostnamectl set-hostname controller
 
-#echo Please enter your ip for cloud setup
-
-#read ip
+echo "192.168.0.10 controller" >> /etc/hosts
 
 systemctl stop NetworkManager firewalld postfix
 systemctl disable NetworkManager firewalld postfix
