@@ -24,7 +24,7 @@ yum update -y
 
 if  [ $? -eq 0 ]
 	then
-	yum install centos-release-openstack-stein -y
+	yum install centos-release-openstack-rocky -y
 	echo 
 	if [ $? -eq 0 ]
 		then
